@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Ubuntu:wght@500&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+    }
+    body {
+        font-family: 'Macondo', cursive;
+        background-image: url("jonatan-pie-3l3RwQdHRHg-unsplash.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-attachment: fixed;   /*keeps the background image fixed despite the viewport*/
+        overflow-y: hidden;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login_container {
+        width: 40vw;
+        height: 85vh;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border-radius: 1rem;
+        display: grid;
+        grid-template-rows: 1fr 3fr 1fr;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px 60px;
+    }
+    .title {
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+    .name {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    label {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    input {
+        width: 100%;
+        outline: none!important;
+        height: 30px;
+        border-radius: 5px;
+        background:rgba(255, 255, 255, 0.1);
+        border: none;
+        padding: 2px 10px;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 300ms ease-in-out;
+    }
+    input:focus {
+        box-shadow: .01px .01px 3px white;
+    }
+    input[type="number"]::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+    button{
+        position: relative;
+        width: 140px;
+        height: 35px;
+        border-radius: 1rem;
+        background:rgba(255, 255, 255, 0.8);
+        border: none;
+        font-weight: bold;
+        overflow: hidden;
+        cursor: pointer;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    /* button animation part */
+    button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: white;
+        z-index: -1;
+        border-radius: 1rem;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 200ms ease-in-out;
+    }
+    button:hover::before {
+        transform: scaleX(1);
+    }
+    @media (max-width: 800px) {
+        .login_container {
+            width: 75vw;
+            height: 90vh;
+        }
+        .name {
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .title {
+            font-size: 1.75rem;
+        }
+        label {
+            font-size: 1.1rem;
+        }
+        input {
+            height: 25px;
+        }
+    }
+    @media (max-width: 610px) {
+        input {
+            max-width: 100%;
+            justify-self: center;
+            height: 20px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+        }
+    }
+</style>
+<body>
+    <div class="login_container">
+        <p class="title">Welcome to X Space Travel</p>
+        <div class="form">
+            <div class="name">
+                <label>First name: 
+                    <input type="text" placeholder="e.g. Kanak" required></label>
+                <label>Last name:
+                    <input type="text" placeholder="e.g. Shakya" required>
+                </label>
+            </div><br>
+            <label>Address: <br>
+                <input type="text" required>
+            </label><br>
+            <label>Phone: <br>
+                <input type="number" required>
+            </label><br>
+            <label>Email: <br>
+                <input type="email" placeholder="e.g. kanakshakya@gmail.com" required>
+            </label><br>
+            <label>Password: <br>
+                <input type="password" required>
+            </label>
+        </div>
+        <div class="buttons">
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+    </div>
+</body>
+</html>
